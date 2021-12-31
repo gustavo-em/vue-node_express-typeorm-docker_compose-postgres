@@ -1,18 +1,20 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <p>home</p>
+
+    <button @click="getApi()">Chamar API</button>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
 export default {
-  name: 'Home',
-  components: {
-    HelloWorld
-  }
-}
+  name: "Home",
+  methods: {
+    getApi() {
+      fetch(`http://localhost:3333/teste`)
+        .then((r) => r.json())
+        .then((r) => console.log(r));
+    },
+  },
+};
 </script>
